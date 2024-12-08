@@ -1,0 +1,76 @@
+@startuml
+class Animal {
+  + name: string
+  + speed: number
+  + move()
+  + makeSound()
+}
+
+interface Hunter {
+  + attack(p: Prey): boolean
+}
+
+interface Prey {
+  + escape(h: Hunter): boolean
+}
+
+class Cat {
+  - makeCatSound()
+}
+Animal <|-- Cat
+Hunter <|-- Cat
+
+class PersianCat {
+  - makePersianCatSound()
+}
+Cat <|-- PersianCat
+
+class BiritishCat {
+  - makeBiritishCatSound()
+}
+Cat <|-- BiritishCat
+
+class Shark {
+  - makeSharkSound()
+}
+Animal <|-- Shark
+Hunter <|-- Shark
+
+class WhaleShark {
+  - makeWhaleSharkSound()
+}
+Shark <|-- WhaleShark
+
+class BullShark {
+  - makeBullSharkSound()
+}
+Shark <|-- BullShark
+
+class Mouse {
+  - makeMouseSound()
+}
+Animal <|-- Mouse
+Prey <|-- Mouse
+
+class HouseMouse {
+  - makeHouseMouseSound()
+}
+Mouse <|-- HouseMouse
+
+class DeerMouse {
+  - makeDeerMouseSound()
+}
+Mouse <|-- DeerMouse
+
+class Fish {
+  - makeFishSound()
+}
+Animal <|-- Fish
+Prey <|-- Fish
+
+class TroutFish {
+  - makeTroutFishSound()
+}
+Fish <|-- TroutFish
+
+@enduml

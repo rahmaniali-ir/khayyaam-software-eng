@@ -1,0 +1,15 @@
+{
+  "name": "khayyaam-software-eng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "animals.js",
+  "scripts": {
+    "start": "tsc ./src/main.ts --outfile ./dst/main.js && node ./dst/animals.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
