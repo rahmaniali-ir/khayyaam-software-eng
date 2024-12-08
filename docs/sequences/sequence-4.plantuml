@@ -1,0 +1,18 @@
+@startuml
+title Display Results Process
+
+actor Admin
+actor Member
+entity VotingSystem
+entity VoteCount
+
+Admin -> VotingSystem: Request to view results
+VotingSystem -> VoteCount: Retrieve vote count results
+VoteCount --> VotingSystem: Return vote count results
+VotingSystem -> Admin: Display vote count results
+
+Member -> VotingSystem: Request to view results
+VotingSystem -> VoteCount: Retrieve vote count results
+VoteCount --> VotingSystem: Return vote count results
+VotingSystem -> Member: Display vote results
+@enduml

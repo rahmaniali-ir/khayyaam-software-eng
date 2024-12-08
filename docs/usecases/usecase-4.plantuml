@@ -1,0 +1,12 @@
+@startuml
+title Display Results Process
+
+actor Admin
+actor Member
+entity VotingSystem
+
+Admin --> (View Results)
+Member --> (View Results)
+(VotingSystem) --> (Retrieve Results)
+(VotingSystem) --> (Display Results)
+@enduml

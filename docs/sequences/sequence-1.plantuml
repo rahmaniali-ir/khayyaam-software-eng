@@ -1,0 +1,17 @@
+@startuml
+title Voting Process
+
+actor Member
+entity VotingSystem
+entity CandidateList
+entity Ballot
+
+Member -> VotingSystem: Request to vote
+VotingSystem -> CandidateList: Retrieve list of candidates
+CandidateList --> VotingSystem: Return candidate list
+VotingSystem -> Member: Display candidates
+Member -> VotingSystem: Vote for a candidate
+VotingSystem -> Ballot: Record vote
+Ballot --> VotingSystem: Vote successfully recorded
+VotingSystem -> Member: Confirmation message
+@enduml

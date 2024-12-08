@@ -1,0 +1,15 @@
+@startuml
+title Voting Process
+
+actor Member
+actor Admin
+entity VotingSystem
+
+Member --> (Login)
+Member --> (Vote)
+(VotingSystem) --> (Display Candidates)
+(VotingSystem) --> (Record Vote)
+(VotingSystem) --> (Confirm Vote)
+
+Admin --> (View Results)
+@enduml

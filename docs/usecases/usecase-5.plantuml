@@ -1,0 +1,12 @@
+@startuml
+title Voter Eligibility Check Process
+
+actor Member
+entity VotingSystem
+entity EligibilityCheck
+
+Member --> (Request to Vote)
+(VotingSystem) --> (Check Eligibility)
+(EligibilityCheck) --> (Confirm Eligibility)
+(VotingSystem) --> (Display Candidates)
+@enduml

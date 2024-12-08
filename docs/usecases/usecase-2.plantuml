@@ -1,0 +1,11 @@
+@startuml
+title Vote Counting Process
+
+actor Admin
+entity VotingSystem
+
+Admin --> (Initiate Vote Count)
+(VotingSystem) --> (Retrieve All Votes)
+(VotingSystem) --> (Count Votes)
+(VotingSystem) --> (Display Results)
+@enduml

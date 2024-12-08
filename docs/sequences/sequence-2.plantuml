@@ -1,0 +1,16 @@
+@startuml
+title Vote Counting Process
+
+actor Admin
+entity VotingSystem
+entity Ballot
+entity VoteCount
+
+Admin -> VotingSystem: Initiate vote count
+VotingSystem -> Ballot: Retrieve all votes
+Ballot --> VotingSystem: Return list of all votes
+VotingSystem -> VoteCount: Start counting votes
+VoteCount -> VoteCount: Count votes for each candidate
+VoteCount --> VotingSystem: Return vote count results
+VotingSystem -> Admin: Display vote count results
+@enduml

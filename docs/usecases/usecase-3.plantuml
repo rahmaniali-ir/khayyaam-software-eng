@@ -1,0 +1,11 @@
+@startuml
+title Voter Authentication Process
+
+actor Member
+actor VotingSystem
+entity AuthenticationSystem
+
+Member --> (Login)
+(Login) --> AuthenticationSystem: Verify Credentials
+(AuthenticationSystem) --> (Login Success)
+@enduml

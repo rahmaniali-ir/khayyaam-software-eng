@@ -1,0 +1,16 @@
+@startuml
+title Voter Authentication Process
+
+actor Member
+entity AuthenticationSystem
+entity VotingSystem
+
+Member -> AuthenticationSystem: Request login
+AuthenticationSystem -> Member: Prompt for credentials
+Member -> AuthenticationSystem: Provide username and password
+AuthenticationSystem -> VotingSystem: Validate credentials
+VotingSystem --> AuthenticationSystem: Credentials valid
+AuthenticationSystem -> Member: Login successful
+Member -> VotingSystem: Request to vote
+VotingSystem -> Member: Display candidates
+@enduml
