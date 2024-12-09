@@ -1,0 +1,52 @@
+@startuml
+actor User
+actor Support
+actor Admin
+
+"1. Login/Register with Telegram" as (login)
+"2. List/Search Videos" as (videos)
+"3. Watch Video" as (watch)
+"4. Subscribe" as (subscribe)
+"5. Purchase" as (purchase)
+"6. Unsubscribe" as (unsubscribe)
+"7. Watch History" as (history)
+"8. Update Profile" as (profile)
+"9. List Bookmarks" as (bookmarks)
+"10. Add to Bookmarks" as (bookmark)
+"11. Rate Video" as (rate)
+"12. Contact Support" as (contact)
+"13. Add Video" as (addVideo)
+"14. Edit Video" as (editVideo)
+"15. List Discount Codes" as (discounts)
+"16. Create Discount Code" as (createDiscount)
+"17. Edit Discount Code" as (editDiscount)
+"18. List Users" as (user)
+
+Support -[hidden] Admin
+
+User -u-> (login)
+User -d-> (register)
+User -d-> (videos)
+User -d-> (watch)
+User -d-> (bookmarks)
+User -d-> (bookmark)
+User -d-> (history)
+User -d-> (profile)
+User -d-> (contact)
+User -d-> (subscribe)
+User -d-> (purchase)
+User -d-> (unsubscribe)
+User -d-> (rate)
+
+Support -r-> (login)
+Support -u-> (addVideo)
+Support -u-> (editVideo)
+Support -u-> (listUsers)
+
+Admin -l-> (login)
+Admin -u-> (discounts)
+Admin -u-> (createDiscount)
+Admin -u-> (editDiscount)
+Admin -u-> (listUsers)
+
+@enduml

@@ -1,0 +1,67 @@
+@startuml
+title User Subscription Activity
+
+|Application|
+|System|
+|Telegram|
+|Bank|
+
+|Application|
+start
+:Open App;
+
+|Application|
+:Check if user is logged in?;
+
+if (User is logged in?) then (yes)
+else (no)
+  |Telegram|
+  :Authenticate with Telegram;
+  :Telegram verifies credentials;
+
+  |System|
+  :Verify login credentials;
+
+  |Application|
+  :Show successful login message;
+end if
+
+|Application|
+:Display home page;
+:List/Search Videos;
+
+|System|
+:Fetch video list from database;
+
+|Application|
+:Show list of videos;
+:Play video;
+
+if (User is already subscribed?) then (yes)
+else (no)
+  :Show subscription plans;
+
+  |System|
+  :Send list of subscription plans;
+
+  |Application|
+  :Select subscription plan;
+  :Purchase plan;
+
+  |Bank|
+  :Perform Payment;
+  :Verify Payment;
+
+  |System|
+  :Confirm payment;
+  :Update user subscription in database;
+
+  |Application|
+  :Display confirmation;
+end if
+
+|Application|
+:Watch video;
+stop
+
+@enduml

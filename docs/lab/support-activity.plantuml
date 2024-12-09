@@ -1,0 +1,31 @@
+@startuml
+title Support Activity
+
+|Application|
+start
+:Open App;
+
+|Application|
+:Check if user is logged in?;
+
+if (User is logged in?) then (yes)
+else (no)
+  |Telegram|
+  :Authenticate with Telegram;
+  :Telegram verifies credentials;
+
+  |System|
+  :Verify login credentials;
+end if
+
+|Application|
+:Display home page;
+:Add Video;
+:Edit Video;
+:List Users;
+:Add video to database;
+:Edit video in database;
+:Fetch users from database;
+
+stop
+@enduml

@@ -1,0 +1,54 @@
+@startuml
+
+title Subscription Activity
+
+|Application|
+start
+:List/Search videos;
+
+|Video Service|
+:Send list of videos;
+
+|Application|
+:Show list of videos;
+:Play video;
+
+:Send list of subscription plans to user;
+:User selects subscription plan;
+:Send subscription selection to Payment Service;
+
+|Payment Service|
+:Generate payment link;
+:Send payment link to Application;
+
+|Application|
+:Redirect user to payment page;
+
+|Bank Gateway|
+:Process payment;
+fork
+  :Confirm payment;
+  :Send payment confirmation to Payment Service;
+fork again
+  :Payment failed;
+  :Send payment failure notification to Application;
+end fork
+
+|Payment Service|
+if (Payment Confirmed?) then (yes)
+  :Verify payment confirmation;
+  :Send verification to Application;
+else (no)
+  :Handle payment failure;
+  :Send failure notification to Application;
+endif
+
+|Application|
+if (Payment Successful?) then (yes)
+  :Display payment success message to user;
+else (no)
+  :Display payment failure message to user;
+endif
+stop
+
+@enduml
